@@ -46,7 +46,7 @@ export function Hero() {
             initial={{ scale: 1, x: 0 }}
             animate={{ scale: 1.15, x: "-1%" }}
             transition={{
-              duration: 25,
+              duration: 5,
               ease: "linear",
               repeat: Infinity,
               repeatType: "reverse"
