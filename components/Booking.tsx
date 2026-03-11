@@ -114,13 +114,12 @@ export function Booking() {
                   id="date-depart"
                   value={date}
                   onChange={(e) => setDate(e.target.value)}
-                  className="h-12 w-full appearance-none rounded-2xl bg-black/40 px-4 pr-10 text-sm text-white ring-1 ring-white/10 outline-none transition focus:ring-gold-500/30 [color-scheme:dark]"
+                  // J'ai enlevé le pr-10 qui créait un espace vide à droite
+                  className="h-12 w-full appearance-none rounded-2xl bg-black/40 px-4 text-sm text-white ring-1 ring-white/10 outline-none transition focus:ring-gold-500/30 [color-scheme:dark]"
                 />
-                {/* L'icône est maintenant masquée sur mobile pour ne pas superposer l'icône calendrier native */}
-                <Calendar className="pointer-events-none absolute right-3 top-1/2 size-4 -translate-y-1/2 text-zinc-200/70 hidden sm:block" />
+                {/* Suppression de l'icône Lucide <Calendar /> */}
               </div>
             </div>
-
 
             <motion.button
               whileHover={{ scale: 1.01 }}
