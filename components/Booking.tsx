@@ -105,20 +105,22 @@ export function Booking() {
             </div>
 
             <div>
-              <label className="text-xs font-medium text-zinc-200/80">
-                Date d’arrivée (simulation)
+              <label htmlFor="date-depart" className="text-xs font-medium text-zinc-200/80">
+                Date d’arrivée
               </label>
               <div className="relative mt-2">
                 <input
+                  type="date"
+                  id="date-depart"
                   value={date}
                   onChange={(e) => setDate(e.target.value)}
-                  placeholder="JJ/MM/AAAA"
-                  inputMode="numeric"
-                  className="h-12 w-full rounded-2xl bg-black/40 px-4 pr-10 text-sm text-white ring-1 ring-white/10 outline-none transition placeholder:text-zinc-400 focus:ring-gold-500/30"
+                  className="h-12 w-full appearance-none rounded-2xl bg-black/40 px-4 pr-10 text-sm text-white ring-1 ring-white/10 outline-none transition focus:ring-gold-500/30 [color-scheme:dark]"
                 />
-                <Calendar className="pointer-events-none absolute right-3 top-1/2 size-4 -translate-y-1/2 text-zinc-200/70" />
+                {/* L'icône est maintenant masquée sur mobile pour ne pas superposer l'icône calendrier native */}
+                <Calendar className="pointer-events-none absolute right-3 top-1/2 size-4 -translate-y-1/2 text-zinc-200/70 hidden sm:block" />
               </div>
             </div>
+
 
             <motion.button
               whileHover={{ scale: 1.01 }}
