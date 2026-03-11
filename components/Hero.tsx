@@ -44,9 +44,9 @@ export function Hero() {
           <motion.div 
             className="absolute inset-0 h-full w-full"
             initial={{ scale: 1, x: 0 }}
-            animate={{ scale: 1.15, x: "-1%" }}
+            animate={{ scale: 2.15, x: "-1%" }}
             transition={{
-              duration: 5,
+              duration: 25,
               ease: "linear",
               repeat: Infinity,
               repeatType: "reverse"
