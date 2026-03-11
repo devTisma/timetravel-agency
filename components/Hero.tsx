@@ -41,14 +41,26 @@ export function Hero() {
             <source src={videoSrc} />
           </video>
         ) : (
-          <Image
-            src={fallbackImageSrc}
-            alt=""
-            fill
-            priority
-            className="object-cover"
-            sizes="100vw"
-          />
+          <motion.div 
+            className="absolute inset-0 h-full w-full"
+            initial={{ scale: 1, x: 0 }}
+            animate={{ scale: 1.15, x: "-1%" }}
+            transition={{
+              duration: 25,
+              ease: "linear",
+              repeat: Infinity,
+              repeatType: "reverse"
+            }}
+          >
+            <Image
+              src={fallbackImageSrc}
+              alt="Décor temporel"
+              fill
+              priority
+              className="object-cover"
+              sizes="100vw"
+            />
+          </motion.div>
         )}
 
         <div className="absolute inset-0 bg-black/50" />
