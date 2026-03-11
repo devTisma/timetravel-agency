@@ -69,11 +69,12 @@ export function Navbar() {
             href="#reservation"
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.98 }}
-            className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-gold-400 to-gold-600 px-4 py-2 text-sm font-semibold text-black shadow-glow ring-1 ring-gold-200/20"
+            className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-amber-400 to-amber-600 px-5 py-2.5 text-sm font-semibold text-white shadow-lg ring-1 ring-amber-200/20"
           >
             <Sparkles className="size-4" />
             Réserver
           </motion.a>
+
         </nav>
       </div>
     </header>
