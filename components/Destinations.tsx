@@ -101,60 +101,65 @@ export function Destinations() {
         >
         {destinations.map((d, idx) => (
           <motion.article
-            key={d.title}
-            variants={card}
-            className="group relative overflow-hidden rounded-3xl tt-glass transition-all duration-700 hover:-translate-y-2 hover:shadow-2xl"
-          >
-            <div className="p-4">
-              <div className="relative overflow-hidden rounded-2xl ring-1 ring-white/10">
-                <div className="relative aspect-[16/10]">
-                  <Image
-                    src={d.imageSrc}
-                    alt={d.imageAlt}
-                    fill
-                    className="rounded-2xl object-cover transition-transform duration-700 group-hover:scale-105"
-                    sizes="(min-width: 640px) 33vw, 92vw"
-                  />
-                  <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-t from-black/55 via-black/15 to-transparent" />
-                </div>
-
-                <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
-                </div>
-
-                <div className="absolute left-4 top-4 inline-flex items-center gap-2 rounded-full bg-black/40 px-3 py-1 text-xs font-medium text-zinc-100 ring-1 ring-white/10 backdrop-blur">
-                  <MapPin className="size-3.5 text-gold-200" />
-                  {d.era}
-                </div>
+          key={d.title}
+          variants={card}
+          // Ajout de h-full et flex flex-col pour que les cartes aient la même hauteur
+          className="group relative flex h-full flex-col overflow-hidden rounded-3xl tt-glass transition-all duration-700 hover:-translate-y-2 hover:shadow-2xl"
+        >
+          {/* Ajout de flex-grow pour que cette zone prenne tout l'espace disponible */}
+          <div className="flex flex-grow flex-col p-4">
+            <div className="relative overflow-hidden rounded-2xl ring-1 ring-white/10">
+              <div className="relative aspect-[16/10]">
+                <Image
+                  src={d.imageSrc}
+                  alt={d.imageAlt}
+                  fill
+                  className="rounded-2xl object-cover transition-transform duration-700 group-hover:scale-105"
+                  sizes="(min-width: 640px) 33vw, 92vw"
+                />
+                <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-t from-black/55 via-black/15 to-transparent" />
               </div>
 
-              <div className="mt-4">
-                <h3 className="text-lg font-semibold text-white">{d.title}</h3>
-                <p className="mt-1 text-sm leading-6 text-zinc-200/70">{d.description}</p>
+              <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
+              </div>
+
+              <div className="absolute left-4 top-4 inline-flex items-center gap-2 rounded-full bg-black/40 px-3 py-1 text-xs font-medium text-zinc-100 ring-1 ring-white/10 backdrop-blur">
+                <MapPin className="size-3.5 text-gold-200" />
+                {d.era}
               </div>
             </div>
 
-            <div className="absolute inset-x-0 bottom-0 p-4">
-              <motion.a
-                href="#reservation"
-                initial={{ opacity: 0, y: 10 }}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="flex items-center justify-between rounded-2xl bg-white/5 px-4 py-3 text-sm font-semibold text-white ring-1 ring-white/10 backdrop-blur transition-colors group-hover:bg-white/10"
-              >
-                Détails
-                <span className="grid size-8 place-items-center rounded-xl bg-black/40 ring-1 ring-white/10">
-                  <ArrowUpRight className="size-4 text-gold-200" />
-                </span>
-              </motion.a>
+            {/* flex-grow pousse le reste du contenu vers le bas */}
+            <div className="mt-4 flex-grow">
+              <h3 className="text-lg font-semibold text-white">{d.title}</h3>
+              <p className="mt-1 text-sm leading-6 text-zinc-200/70">{d.description}</p>
             </div>
+          </div>
 
-            <div
-              aria-hidden
-              className="pointer-events-none absolute -top-24 left-1/2 h-48 w-48 -translate-x-1/2 rounded-full bg-gold-500/10 blur-3xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-            />
-          </motion.article>
+          {/* On supprime 'absolute' et on utilise mt-auto pour coller le bouton en bas */}
+          <div className="mt-auto p-4 pt-0">
+            <motion.a
+              href="#reservation"
+              initial={{ opacity: 0, y: 10 }}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="flex items-center justify-between rounded-2xl bg-white/5 px-4 py-3 text-sm font-semibold text-white ring-1 ring-white/10 backdrop-blur transition-colors group-hover:bg-white/10"
+            >
+              Détails
+              <span className="grid size-8 place-items-center rounded-xl bg-black/40 ring-1 ring-white/10">
+                <ArrowUpRight className="size-4 text-gold-200" />
+              </span>
+            </motion.a>
+          </div>
+
+          <div
+            aria-hidden
+            className="pointer-events-none absolute -top-24 left-1/2 h-48 w-48 -translate-x-1/2 rounded-full bg-gold-500/10 blur-3xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+          />
+        </motion.article>
+
         ))}
         </motion.div>
       </motion.div>
